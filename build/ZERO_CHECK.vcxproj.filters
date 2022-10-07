@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\build\CMakeFiles\b673dc79a579cb4063a2442da2af1802\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E2490EC4-7A3A-327F-BBD5-CEF7387DA0D4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

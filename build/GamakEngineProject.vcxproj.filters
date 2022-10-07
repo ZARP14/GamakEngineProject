@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\main\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\gui\gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\aliveObjects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\world.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\sfmlObjects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\domain\path.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\core.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\gui\gui.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\aliveObjects.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\player.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\world.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\sfmlObjects.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\domain\path.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\domain\definiki.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E4B3B894-DF25-3015-A371-93C3D8F47160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{911DC3D5-1636-3544-B34D-EC05522B2E58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
