@@ -24,13 +24,40 @@ Gui::drawAnything()
 }
 
 void
+Gui::eventFunction(sf::Event &e)
+{
+     if (e.type == sf::Event::Closed)
+     {
+        mWindow.close();
+     }
+
+            else if (e.type == sf::Event::KeyPressed)
+            {
+                if (e.key.code == sf::Keyboard::Left)
+
+                else if (e.key.code == sf::Keyboard::Right)
+
+                else if (e.key.code == sf::Keyboard::Up)
+
+                else if (e.key.code == sf::Keyboard::Down)
+
+            }
+            else if (e.type == sf::Event::KeyReleased)
+            {
+                if (e.key.code == sf::Keyboard::Left || e.key.code == sf::Keyboard::Right)
+
+                else if (e.key.code == sf::Keyboard::Up || e.key.code == sf::Keyboard::Down)
+
+            }
+}
+
+void
 Gui::visual_started()
 {
-    sf::Event event;
+        sf::Event event;
         while (mWindow.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
-                    mWindow.close();
+            eventFunction(event);   
         }
 
         mWindow.clear();

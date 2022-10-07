@@ -312,6 +312,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\main\main.cpp" />
     <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\core.cpp" />
     <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\core.hpp" />
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\events.cpp" />
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\events.hpp" />
     <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\gui\gui.cpp" />
     <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\gui\gui.hpp" />
     <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\game\aliveObjects.cpp" />

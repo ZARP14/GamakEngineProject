@@ -9,12 +9,7 @@ class Player :
     public AliveObjects
 {
 public:
-    // Player(std::string str,
-    //         int width,
-    //         int height,
-    //         int left,
-    //         int right
-    // );
+
     Player(std::string str = RESOURCES_PATH + "playerTexture.png", 
                int width = 100,
                int height = 100,

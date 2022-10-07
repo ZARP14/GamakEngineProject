@@ -3,4 +3,7 @@ set(
     
     core.cpp
     core.hpp
+
+    events.cpp
+    events.hpp
 )

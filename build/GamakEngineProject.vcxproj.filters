@@ -7,6 +7,9 @@
     <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\gui\gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\core.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\core\events.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\visitor.ATALENT.003\Documents\sources\GamakEngineProject\sources\gui\gui.hpp">
