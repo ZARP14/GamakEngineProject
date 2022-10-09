@@ -20,35 +20,48 @@ Gui::drawAnything()
     for(int i = 0; i < SpriteVector.size(); i++)
     {
         mWindow.draw(SpriteVector[i]);
-    } ;
+    }
 }
 
-void
-Gui::eventFunction(sf::Event &e)
+Events
+Gui::eventTrnasmitterToCore()
 {
-     if (e.type == sf::Event::Closed)
-     {
-        mWindow.close();
-     }
+    return evObject;
+}
 
-            else if (e.type == sf::Event::KeyPressed)
-            {
-                if (e.key.code == sf::Keyboard::Left)
+// void
+// Gui::eventFunction(sf::Event &e)
+// {
+//      if (e.type == sf::Event::Closed)
+//      {
+//         mWindow.close();
+//      }
 
-                else if (e.key.code == sf::Keyboard::Right)
+//             else if (e.type == sf::Event::KeyPressed)
+//             {
+//                 if (e.key.code == sf::Keyboard::Left)
 
-                else if (e.key.code == sf::Keyboard::Up)
+//                 else if (e.key.code == sf::Keyboard::Right)
 
-                else if (e.key.code == sf::Keyboard::Down)
+//                 else if (e.key.code == sf::Keyboard::Up)
 
-            }
-            else if (e.type == sf::Event::KeyReleased)
-            {
-                if (e.key.code == sf::Keyboard::Left || e.key.code == sf::Keyboard::Right)
+//                 else if (e.key.code == sf::Keyboard::Down)
 
-                else if (e.key.code == sf::Keyboard::Up || e.key.code == sf::Keyboard::Down)
+//             }
+//             else if (e.type == sf::Event::KeyReleased)
+//             {
+//                 if (e.key.code == sf::Keyboard::Left || e.key.code == sf::Keyboard::Right)
 
-            }
+//                 else if (e.key.code == sf::Keyboard::Up || e.key.code == sf::Keyboard::Down)
+
+//             }
+// }
+
+
+void
+Gui::bebraMustDie()
+{
+    mWindow.close();
 }
 
 void
@@ -57,8 +70,9 @@ Gui::visual_started()
         sf::Event event;
         while (mWindow.pollEvent(event))
         {
-            eventFunction(event);   
+            evObject.newEvent(event);
         }
+
 
         mWindow.clear();
         drawAnything();
