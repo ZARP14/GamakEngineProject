@@ -1,14 +1,14 @@
 #ifndef EVENTS_HPP
 #define EVENTS_HPP 
 
-#include "core/core.hpp"
+#include <SFML/Graphics.hpp>
+#include <vector>
 
-class Events
-    public: Core
+class Events 
 {
 public:
-
-
-}
+    void newEvent(sf::Event &ev);
+    std::vector<sf::Event> eventVec;
+};
 
 #endif // !EVENTS_HPP

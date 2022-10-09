@@ -15,7 +15,12 @@ class Core
 public:
 	void run();
 	Core() = default;
+	std::vector<sf::Event> eventTrnasmitterToGame();
 private:
+	void eventSorter();
+	std::vector<sf::Event> eventVecForGame;
+	std::vector<sf::Event> eventVecForMenu;
+
 };
 
 #endif // !CORE_HPP
