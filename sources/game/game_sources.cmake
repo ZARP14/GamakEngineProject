@@ -1,5 +1,8 @@
 set(
     GAME_SOURCES
+
+    game.cpp
+    game.hpp
     
     aliveObjects.cpp
     aliveObjects.hpp
