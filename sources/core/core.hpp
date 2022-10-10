@@ -6,13 +6,15 @@
 #include <vector>
 
 #include "gui/gui.hpp"
-#include "game/player.hpp"
+#include "game/gameplay.hpp"
 #include "domain/definiki.hpp"
 
 
 class Core
 {
 public:
+	std::vector<sf::Event> eventVecTransmitterForGame();
+	std::vector<sf::Event> eventVecTransmitterForMenu();
 	void run();
 	Core() = default;
 	std::vector<sf::Event> eventTrnasmitterToGame();

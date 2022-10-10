@@ -12,12 +12,11 @@ public:
     void visual_started();
     void vectorInput(sf::Sprite &a);
     Events evObject;
-    Events eventTrnasmitterToCore();
+    std::vector<sf::Event> eventTrnasmitterToCore();
     void bebraMustDie();
 private:
     Gui();
     void drawAnything();
-    // void eventFunction();
     sf::RenderWindow mWindow;
     std::vector<sf::Sprite> SpriteVector;
 };
