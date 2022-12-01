@@ -55,5 +55,8 @@
         "xutility": "cpp",
         "set": "cpp",
         "deque": "cpp"
-    }
+    },
+    "workbench.editor.revealIfOpen": true,
+    "editor.formatOnSave": true,
+    "C_Cpp.clang_format_style": "file"
 }
