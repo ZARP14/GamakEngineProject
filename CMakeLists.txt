@@ -12,7 +12,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/so
 
 #sfml
 
-set(SFML_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libraries/SFML-2.5.1_W)
+set(SFML_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libraries/SFML-2.5.1_W-64)
 set(SFML_DIR ${SFML_ROOT_DIR}/lib/cmake/SFML)
 
 find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
