@@ -54,7 +54,8 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "set": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "iomanip": "cpp"
     },
     "workbench.editor.revealIfOpen": true,
     "editor.formatOnSave": true,

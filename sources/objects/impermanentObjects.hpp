@@ -5,7 +5,9 @@
 #include <math.h>
 
 #include "domain/const.hpp"
+#include "domain/time.hpp"
 
+#include "core/core.hpp"
 #include "objects/sfmlObjects.hpp"
 
 class ImpermanentObjects : public SFMLObjects
@@ -31,7 +33,6 @@ protected:
     bool objectVerticalStoper;
     bool objectHorizontalStoper;
     int mGravity;
-    int r;
 };
 
 #endif // !ALIVEOBJECTS_HPP

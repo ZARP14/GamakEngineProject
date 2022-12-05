@@ -10,7 +10,6 @@ ImpermanentObjects::ImpermanentObjects()
     objectVerticalStoper = 1;
     objectHorizontalStoper = 1;
     mGravity = 0;
-    r = 30;
 }
 
 void
@@ -28,22 +27,19 @@ ImpermanentObjects::moveChanger(int direction, bool typeOfMoveChanger,
     }
 }
 
-void 
+void
 ImpermanentObjects::moveStoper(bool flag, bool type)
 {
-    
+
     switch (type)
     {
-    case int(sideType::vertical):
-        objectVerticalStoper = flag;
-        break;
+        case int(sideType::vertical):
+            objectVerticalStoper = flag;
+            break;
 
-    case int(sideType::horizontal):
-        objectHorizontalStoper = flag;
-        break;
-    
-    default:
-        break;
+        case int(sideType::horizontal):
+            objectHorizontalStoper = flag;
+            break;
     }
 }
 
@@ -57,7 +53,6 @@ ImpermanentObjects::movingHorizontal()
     if (objectHorizontalDirection == int(side::left))
     {
         mDirection = -1;
-        // if (intersection(LEFT) == true)
         if (finalCollisionIntersection(int(side::left)) == true)
         {
             collision = 0;
@@ -66,14 +61,14 @@ ImpermanentObjects::movingHorizontal()
     else if (objectHorizontalDirection == int(side::right))
     {
         mDirection = 1;
-        // if (intersection(RIGHT) == true)
         if (finalCollisionIntersection(int(side::right)) == true)
         {
             collision = 0;
         }
     }
-    // objectHorizontalDirection = 99999;
-    objectSprite.move(horizontalSpeed * mDirection * objectHorizontalStoper * collision, 0);
+    objectSprite.move(horizontalSpeed * mDirection * objectHorizontalStoper *
+                          collision * Time::gameTime,
+                      0);
 }
 
 void
@@ -103,9 +98,9 @@ ImpermanentObjects::movingVertical()
             collision = 0;
         }
     }
-    // objectVerticalDirection = 99999;
     objectSprite.move(
-        0, mDirection * (objectVerticalSpeed + mVerticalSpeed * collision));
+        0, (mDirection * (objectVerticalSpeed + mVerticalSpeed * collision)) *
+               Time::gameTime);
 }
 
 void
@@ -190,20 +185,24 @@ ImpermanentObjects::collisionIntersection(sf::Sprite s)
     }
 
     // intersection of the right part
-    if (((fL + fW >= sL && ((fT > sT && fT < sT + sH) ||
-                            (fT + fH > sT && fT + fH < sT + sH) || (fT == sT && fT + fH == sT + sH)))) ||
+    if (((fL + fW >= sL &&
+          ((fT > sT && fT < sT + sH) || (fT + fH > sT && fT + fH < sT + sH) ||
+           (fT == sT && fT + fH == sT + sH)))) ||
         ((sL <= fL + fW &&
-          ((sT > fT && sT < fT + fH) || (sT + sH > fT && sT + sH < fT + fH) || (sL == fL && sL + sW == fL + fW)))))
+          ((sT > fT && sT < fT + fH) || (sT + sH > fT && sT + sH < fT + fH) ||
+           (sL == fL && sL + sW == fL + fW)))))
     {
         if (fL < sL)
             horizontalIntersection = 1;
     }
 
     // intersection of the top part
-    if (((fT <= sT + sH && ((fL > sL && fL < sL + sW) ||
-                            (fL + fW > sL && fL + fW < sL + sW) || (fL == sL && fL + fW == sL + sW)))) ||
+    if (((fT <= sT + sH &&
+          ((fL > sL && fL < sL + sW) || (fL + fW > sL && fL + fW < sL + sW) ||
+           (fL == sL && fL + fW == sL + sW)))) ||
         ((sT + sH >= fT &&
-          ((sL > fL && sL < fL + fW) || (sL + sW > fL && sL + sW < fL + fW) || (sL == fL && sL + sW == fL + fW)))))
+          ((sL > fL && sL < fL + fW) || (sL + sW > fL && sL + sW < fL + fW) ||
+           (sL == fL && sL + sW == fL + fW)))))
     {
         if (fT + fH > sT + sH)
         {
@@ -211,10 +210,12 @@ ImpermanentObjects::collisionIntersection(sf::Sprite s)
         }
     }
     // intersection of the down part
-    if (((fT + fH >= sT && ((fL > sL && fL < sL + sW) ||
-                            (fL + fW > sL && fL + fW < sL + sW) || (fL == sL && fL + fW == sL + sW)))) ||
+    if (((fT + fH >= sT &&
+          ((fL > sL && fL < sL + sW) || (fL + fW > sL && fL + fW < sL + sW) ||
+           (fL == sL && fL + fW == sL + sW)))) ||
         ((sT <= fT + fH &&
-          ((sL > fL && sL < fL + fW) || (sL + sW > fL && sL + sW < fL + fW) || (sL == fL && sL + sW == fL + fW)))))
+          ((sL > fL && sL < fL + fW) || (sL + sW > fL && sL + sW < fL + fW) ||
+           (sL == fL && sL + sW == fL + fW)))))
     {
         if (fT < sT)
         {
