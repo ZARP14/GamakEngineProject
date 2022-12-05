@@ -1,8 +1,10 @@
-#ifndef SFMLOBJECTS_HPP
-#define SFMLOBJECTS_HPP
+#ifndef SFMLOBJECTS_HPP555
+#define SFMLOBJECTS_HPP555
 
 #include <SFML/Graphics.hpp>
+
 #include "domain/definiki.hpp"
+
 #include "gui/gui.hpp"
 
 class SFMLObjects
@@ -12,6 +14,6 @@ public:
     int objectIndex;
     sf::IntRect objectRectangle;
     sf::Sprite objectSprite;
-	sf::Texture objectTexture;
+    sf::Texture objectTexture;
 };
-#endif // !SFMLOBJECTS_HPP
+#endif // !SFMLOBJECTS_HPP555

@@ -7,7 +7,6 @@
 #include "domain/const.hpp"
 #include "domain/time.hpp"
 
-#include "core/core.hpp"
 #include "objects/sfmlObjects.hpp"
 
 class ImpermanentObjects : public SFMLObjects
