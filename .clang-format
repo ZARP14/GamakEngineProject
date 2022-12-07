@@ -1,4 +1,4 @@
-BasedOnStyle: Microsoft 
+<!-- BasedOnStyle: Microsoft 
 
 IndentWidth: 4
 UseTab: Never
@@ -31,4 +31,4 @@ IncludeCategories:
     Priority:        100
 
   - Regex:           '".*"'
-    Priority:        150
+    Priority:        150 -->

@@ -53,7 +53,6 @@ Gameplay::doEvent(std::vector<sf::Event>& b)
 void
 Gameplay::doGame(std::vector<sf::Event>& a)
 {
-    std::cout << RESOURCES_PATH << '\n';
     doEvent(a);
     basePlayer.movingHorizontal();
     basePlayer.movingVertical();

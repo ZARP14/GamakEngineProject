@@ -67,8 +67,8 @@ ImpermanentObjects::movingHorizontal()
         }
     }
     objectSprite.move(horizontalSpeed * mDirection * objectHorizontalStoper *
-                          collision * Time::gameTime,
-                      0);
+                          collision,
+                      /* Time::gameTime,*/ 0);
 }
 
 void
@@ -99,8 +99,8 @@ ImpermanentObjects::movingVertical()
         }
     }
     objectSprite.move(
-        0, (mDirection * (objectVerticalSpeed + mVerticalSpeed * collision)) *
-               Time::gameTime);
+        0, (mDirection * (objectVerticalSpeed + mVerticalSpeed * collision))/* *
+               Time::gameTime*/);
 }
 
 void

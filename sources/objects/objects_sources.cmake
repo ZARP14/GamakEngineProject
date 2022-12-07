@@ -10,4 +10,6 @@ set(
     sfmlObjects.cpp
     sfmlObjects.hpp
 
+    level.cpp
+    level.hpp
 )
