@@ -2,7 +2,7 @@
 
 Gameplay::Gameplay()
 {
-    stone.objectTexture.loadFromFile(RESOURCES_PATH + "PlayerTexture.png");
+    stone.objectTexture.loadFromFile(TEXTURES_PATH + "PlayerTexture.png");
     stone.objectSprite.setTexture(stone.objectTexture);
     stone.objectSprite.setPosition(700, 500);
 }

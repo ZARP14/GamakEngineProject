@@ -20,6 +20,10 @@ find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-network sfml-graphics sfml-audio)
 #sfml
 
+#TinyXML
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libraries/TinyXML/include)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/liraries/TinyXMLL/lib)
+#TinyXML
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin/$<0:>)
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
