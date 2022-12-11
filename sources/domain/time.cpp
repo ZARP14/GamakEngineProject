@@ -1,8 +1,14 @@
 #include "time.hpp"
-float Time::gameTime = 0;
+Time Time::me;
 
 void
 Time::reTime()
 {
-    gameTime = mainTime.restart().asMilliseconds();
+   mainTime.restart();
+}
+
+double
+Time::getTime()
+{
+    return mainTime.getElapsedTime().asMilliseconds();
 }

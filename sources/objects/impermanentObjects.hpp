@@ -24,9 +24,9 @@ protected:
     std::pair<int, int> collisionIntersection(sf::Sprite s);
     bool finalCollisionIntersection(int side);
 
-    int horizontalSpeed;
-    int verticalSpeed;
-    int objectVerticalSpeed;
+    float horizontalSpeed;
+    float verticalSpeed;
+    float objectVerticalSpeed;
     int objectVerticalDirection;
     int objectHorizontalDirection;
     bool objectVerticalStoper;

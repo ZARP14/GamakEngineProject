@@ -5,7 +5,7 @@ Gui Gui::global;
 Gui::Gui() :
  mWindow(sf::VideoMode(1000, 1000), "TheBestGame")
 {
-
+    mWindow.setFramerateLimit(60);
 }
 
 void
@@ -45,8 +45,6 @@ Gui::visualStarted()
     {
         evObject.pushEvent(event);
     }
-
-
     mWindow.clear();
     drawAnything();
     mWindow.display();  // которая будет отрисовывать все объекты на экране  

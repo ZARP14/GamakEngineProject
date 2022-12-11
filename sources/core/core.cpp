@@ -32,10 +32,11 @@ Core::eventSorter(std::vector<sf::Event>& a)
 void
 Core::run()
 {
+    
     Gameplay mainGame;
     while (true)
     {
-        time.reTime();
+        Time::me.reTime();
         Gui::global.visualStarted();
         std::vector<sf::Event>& a = Gui::global.eventTrnasmitterToCore();
         eventSorter(a);

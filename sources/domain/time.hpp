@@ -6,8 +6,9 @@
 class Time
 {
 public:
+    static Time me;
     sf::Clock mainTime;
-    static float gameTime;
     void reTime();
+    double getTime();
 };
 #endif // !TIME_HPP

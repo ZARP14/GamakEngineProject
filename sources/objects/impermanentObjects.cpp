@@ -49,7 +49,7 @@ ImpermanentObjects::movingHorizontal()
     bool collision = 1;
     bool stop = 1;
 
-    int mDirection = 0;
+    float mDirection = 0;
     if (objectHorizontalDirection == int(side::left))
     {
         mDirection = -1;
@@ -66,22 +66,24 @@ ImpermanentObjects::movingHorizontal()
             collision = 0;
         }
     }
-    objectSprite.move(horizontalSpeed * mDirection * objectHorizontalStoper *
-                          collision,
-                      /* Time::gameTime,*/ 0);
+
+    auto g1 = horizontalSpeed * mDirection * (collision ? 1:0) * (objectHorizontalStoper ? 1:0) *
+                      Time::me.getTime();
+
+    objectSprite.move(g1, 0);
 }
 
 void
 ImpermanentObjects::movingVertical()
 {
     bool collision = true;
-    int mVerticalSpeed = verticalSpeed;
+    float mVerticalSpeed = verticalSpeed;
     if (objectVerticalStoper == 0)
     {
         mVerticalSpeed = 0;
     }
 
-    int mDirection = 0;
+    float mDirection = 0;
     if (objectVerticalDirection == int(side::down))
     {
         mDirection = 1;
@@ -99,8 +101,9 @@ ImpermanentObjects::movingVertical()
         }
     }
     objectSprite.move(
-        0, (mDirection * (objectVerticalSpeed + mVerticalSpeed * collision))/* *
-               Time::gameTime*/);
+        0, (mDirection * (objectVerticalSpeed + mVerticalSpeed * (collision ? 1:0)))
+         * Time::me.getTime()
+         );
 }
 
 void
