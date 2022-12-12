@@ -2,14 +2,14 @@
 
 ImpermanentObjects::ImpermanentObjects()
 {
-    horizontalSpeed = 0.1;
-    verticalSpeed = 0.2;
-    objectVerticalSpeed = 0;
-    objectVerticalDirection = 9999;
+    horizontalSpeed           = 0.1;
+    verticalSpeed             = 0.2;
+    objectVerticalSpeed       = 0;
+    objectVerticalDirection   = 9999;
     objectHorizontalDirection = 9999;
-    objectVerticalStoper = 1;
-    objectHorizontalStoper = 1;
-    mGravity = 0;
+    objectVerticalStoper      = 1;
+    objectHorizontalStoper    = 1;
+    mGravity                  = 0;
 }
 
 void
@@ -47,7 +47,7 @@ void
 ImpermanentObjects::movingHorizontal()
 {
     bool collision = 1;
-    bool stop = 1;
+    bool stop      = 1;
 
     float mDirection = 0;
     if (objectHorizontalDirection == int(side::left))
@@ -67,8 +67,8 @@ ImpermanentObjects::movingHorizontal()
         }
     }
 
-    auto g = horizontalSpeed * mDirection * (collision ? 1:0) * (objectHorizontalStoper ? 1:0)
-                      * Time::me.getTime();
+    auto g = horizontalSpeed * mDirection * (collision ? 1 : 0) *
+             (objectHorizontalStoper ? 1 : 0) * Time::me.getTime();
 
     objectSprite.move(g, 0);
 }
@@ -76,7 +76,7 @@ ImpermanentObjects::movingHorizontal()
 void
 ImpermanentObjects::movingVertical()
 {
-    bool collision = true;
+    bool collision       = true;
     float mVerticalSpeed = verticalSpeed;
     if (objectVerticalStoper == 0)
     {
@@ -100,7 +100,9 @@ ImpermanentObjects::movingVertical()
             collision = 0;
         }
     }
-    float g = (mDirection * (objectVerticalSpeed + mVerticalSpeed * (collision ? 1:0))) * Time::me.getTime();
+    float g = (mDirection *
+               (objectVerticalSpeed + mVerticalSpeed * (collision ? 1 : 0))) *
+              Time::me.getTime();
     objectSprite.move(0, g);
 }
 
@@ -166,65 +168,63 @@ ImpermanentObjects::collisionIntersection(sf::Sprite s)
     float sT = s.getGlobalBounds().top;
     float sH = s.getGlobalBounds().height;
     float sW = s.getGlobalBounds().width;
+    float sD = sT + sH;
+    float sR = sL + sW;
 
     float fL = objectSprite.getGlobalBounds().left;
     float fT = objectSprite.getGlobalBounds().top;
     float fH = objectSprite.getGlobalBounds().height;
     float fW = objectSprite.getGlobalBounds().width;
+    float fD = fT + fH;
+    float fR = fL + fW;
 
-    int verticalIntersection = 9;
+    bool fTbetweenStSd = fT > sT && fT < sD;
+    bool fDbetweenStSd = fD > sT && fD < sD;
+    bool sTbetweenFtFd = sT > fT && sT < fD;
+    bool sDbetweenFtFd = sD > fT && sD < fD;
+
+    bool fLbetweenSlSr = fL > sL && fL < sR;
+    bool fRbetweenSlSr = fR > sL && fR < sR;
+    bool sLbetweenFlFr = sL > fL && sL < fR;
+    bool sRbetweenFlFr = sR > fL && sR < fR;
+
+    bool horizontalEquals = sT == fT && sD == fD;
+    bool verticalEquals   = sL == fL && sR == fR;
+
+    bool canL = fR > sR;
+    bool canR = fL < sL;
+    bool canT = fD > sD;
+    bool canD = fT < fT;
+
+    int verticalIntersection   = 9;
     int horizontalIntersection = 9;
 
     // intersection of the left part
-    if (((fL <= sL + sW && ((fT > sT && fT < sT + sH) ||
-                            (fT + fH > sT && fT + fH < sT + sH)))) ||
-        ((sL + sW > fL &&
-          ((sT > fT && sT < fT + fH) || (sT + sH > fT && sT + sH < fT + fH)))))
-    {
-        if (fL + fW > sL + sW)
-            horizontalIntersection = 0;
-    }
+    if (((fL <= sR && (fTbetweenStSd || fDbetweenStSd || horizontalEquals)) ||
+         (sR > fL && (sTbetweenFtFd || sDbetweenFtFd || horizontalEquals))) &&
+        canL)
+        horizontalIntersection = 0;
 
     // intersection of the right part
-    if (((fL + fW >= sL &&
-          ((fT > sT && fT < sT + sH) || (fT + fH > sT && fT + fH < sT + sH) ||
-           (fT == sT && fT + fH == sT + sH)))) ||
-        ((sL <= fL + fW &&
-          ((sT > fT && sT < fT + fH) || (sT + sH > fT && sT + sH < fT + fH) ||
-           (sL == fL && sL + sW == fL + fW)))))
-    {
-        if (fL < sL)
-            horizontalIntersection = 1;
-    }
+    if (((fR >= sL && (fTbetweenStSd || fDbetweenStSd || horizontalEquals)) ||
+         (sL <= fR && (sTbetweenFtFd || sDbetweenFtFd || horizontalEquals))) &&
+        canR)
+        horizontalIntersection = 1;
 
     // intersection of the top part
-    if (((fT <= sT + sH &&
-          ((fL > sL && fL < sL + sW) || (fL + fW > sL && fL + fW < sL + sW) ||
-           (fL == sL && fL + fW == sL + sW)))) ||
-        ((sT + sH >= fT &&
-          ((sL > fL && sL < fL + fW) || (sL + sW > fL && sL + sW < fL + fW) ||
-           (sL == fL && sL + sW == fL + fW)))))
-    {
-        if (fT + fH > sT + sH)
-        {
-            verticalIntersection = 2;
-        }
-    }
+    if (((fT <= sD && (fLbetweenSlSr || fRbetweenSlSr || verticalEquals)) ||
+         (sD >= fT && (sLbetweenFlFr || sRbetweenFlFr || verticalEquals))) &&
+        canT)
+        verticalIntersection = 2;
+
     // intersection of the down part
-    if (((fT + fH >= sT &&
-          ((fL > sL && fL < sL + sW) || (fL + fW > sL && fL + fW < sL + sW) ||
-           (fL == sL && fL + fW == sL + sW)))) ||
-        ((sT <= fT + fH &&
-          ((sL > fL && sL < fL + fW) || (sL + sW > fL && sL + sW < fL + fW) ||
-           (sL == fL && sL + sW == fL + fW)))))
-    {
-        if (fT < sT)
-        {
-            verticalIntersection = 3;
-        }
-    }
+    if (((fD >= sT && (fLbetweenSlSr || fRbetweenSlSr || verticalEquals)) ||
+         (sT <= fD && (sLbetweenFlFr || sRbetweenFlFr || verticalEquals))) &&
+        canD)
+        verticalIntersection = 3;
+
     std::pair<int, int> b;
-    b.first = horizontalIntersection;
+    b.first  = horizontalIntersection;
     b.second = verticalIntersection;
     return b;
 }

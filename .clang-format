@@ -1,4 +1,4 @@
-<!-- BasedOnStyle: Microsoft 
+BasedOnStyle: Microsoft 
 
 IndentWidth: 4
 UseTab: Never
@@ -9,6 +9,16 @@ IndentCaseLabels: true
 ColumnLimit: 80
 AccessModifierOffset: -4
 AlwaysBreakAfterReturnType: TopLevel 
+EmptyLineBeforeAccessModifier: LogicalBlock
+MaxEmptyLinesToKeep: 1
+
+AlignArrayOfStructures: Left
+AlignConsecutiveAssignments: Consecutive 
+AlignConsecutiveMacros: Consecutive
+IndentPPDirectives: AfterHash
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 
 SortIncludes: CaseSensitive
 IncludeBlocks: Regroup
@@ -31,4 +41,4 @@ IncludeCategories:
     Priority:        100
 
   - Regex:           '".*"'
-    Priority:        150 -->
+    Priority:        150
