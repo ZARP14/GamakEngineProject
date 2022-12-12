@@ -2,8 +2,8 @@
 
 ImpermanentObjects::ImpermanentObjects()
 {
-    horizontalSpeed = 1;
-    verticalSpeed = 1;
+    horizontalSpeed = 0.1;
+    verticalSpeed = 0.2;
     objectVerticalSpeed = 0;
     objectVerticalDirection = 9999;
     objectHorizontalDirection = 9999;
@@ -67,10 +67,10 @@ ImpermanentObjects::movingHorizontal()
         }
     }
 
-    auto g1 = horizontalSpeed * mDirection * (collision ? 1:0) * (objectHorizontalStoper ? 1:0) *
-                      Time::me.getTime();
+    auto g = horizontalSpeed * mDirection * (collision ? 1:0) * (objectHorizontalStoper ? 1:0)
+                      * Time::me.getTime();
 
-    objectSprite.move(g1, 0);
+    objectSprite.move(g, 0);
 }
 
 void
@@ -100,10 +100,8 @@ ImpermanentObjects::movingVertical()
             collision = 0;
         }
     }
-    objectSprite.move(
-        0, (mDirection * (objectVerticalSpeed + mVerticalSpeed * (collision ? 1:0)))
-         * Time::me.getTime()
-         );
+    float g = (mDirection * (objectVerticalSpeed + mVerticalSpeed * (collision ? 1:0))) * Time::me.getTime();
+    objectSprite.move(0, g);
 }
 
 void
