@@ -4,7 +4,7 @@ Gameplay::Gameplay()
 {
     stone.objectTexture.loadFromFile(TEXTURES_PATH + "PlayerTexture.png");
     stone.objectSprite.setTexture(stone.objectTexture);
-    stone.objectSprite.setPosition(700, 500);
+    stone.objectSprite.setPosition(500, 500);
 }
 
 void
@@ -17,14 +17,12 @@ Gameplay::doEvent(std::vector<sf::Event>& b)
             if (b[i].key.code == sf::Keyboard::A)
             {
                 basePlayer.moveStoper(1, int(sideType::horizontal));
-                basePlayer.moveChanger(int(side::left),
-                                       int(sideType::horizontal));
+                basePlayer.moveChanger(int(side::left), int(sideType::horizontal));
             }
             else if (b[i].key.code == sf::Keyboard::D)
             {
                 basePlayer.moveStoper(1, int(sideType::horizontal));
-                basePlayer.moveChanger(int(side::right),
-                                       int(sideType::horizontal));
+                basePlayer.moveChanger(int(side::right), int(sideType::horizontal));
             }
             else if (b[i].key.code == sf::Keyboard::W)
             {
@@ -33,18 +31,15 @@ Gameplay::doEvent(std::vector<sf::Event>& b)
             }
             else if (b[i].key.code == sf::Keyboard::S)
             {
-                basePlayer.moveStoper(1, int(sideType::vertical));
-                basePlayer.moveChanger(int(side::down),
-                                       int(sideType::vertical));
+                // basePlayer.moveStoper(1, int(sideType::vertical));
+                // basePlayer.moveChanger(int(side::down), int(sideType::vertical));
             }
         }
         else if (b[i].type == sf::Event::KeyReleased)
         {
-            if (b[i].key.code == sf::Keyboard::A ||
-                b[i].key.code == sf::Keyboard::D)
+            if (b[i].key.code == sf::Keyboard::A || b[i].key.code == sf::Keyboard::D)
                 basePlayer.moveStoper(0, int(sideType::horizontal));
-            else if (b[i].key.code == sf::Keyboard::W ||
-                     b[i].key.code == sf::Keyboard::S)
+            else if (b[i].key.code == sf::Keyboard::W || b[i].key.code == sf::Keyboard::S)
                 basePlayer.moveStoper(0, int(sideType::vertical));
         }
     }
@@ -55,5 +50,6 @@ Gameplay::doGame(std::vector<sf::Event>& a)
 {
     doEvent(a);
     basePlayer.movingHorizontal();
+    basePlayer.gravity();
     basePlayer.movingVertical();
 }

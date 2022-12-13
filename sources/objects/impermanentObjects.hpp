@@ -28,11 +28,12 @@ protected:
     float horizontalSpeed;
     float verticalSpeed;
     float objectVerticalSpeed;
-    int objectVerticalDirection;
+    float preSpeed;
     int objectHorizontalDirection;
     bool objectVerticalStoper;
     bool objectHorizontalStoper;
     int mGravity;
+    float moving;
     sf::Sprite mSprite;
 };
 

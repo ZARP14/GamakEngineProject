@@ -2,14 +2,14 @@
 
 ImpermanentObjects::ImpermanentObjects()
 {
-    horizontalSpeed           = 0.1;
-    verticalSpeed             = 0.2;
+    horizontalSpeed           = 0.2;
+    verticalSpeed             = 5;
     objectVerticalSpeed       = 0;
-    objectVerticalDirection   = 9999;
     objectHorizontalDirection = 9999;
-    objectVerticalStoper      = 1;
-    objectHorizontalStoper    = 1;
+    objectVerticalStoper      = 0;
+    objectHorizontalStoper    = 0;
     mGravity                  = 0;
+    moving                    = 0;
 }
 
 void
@@ -18,7 +18,6 @@ ImpermanentObjects::moveChanger(int direction, bool typeOfMoveChanger, bool stop
     if (typeOfMoveChanger == int(sideType::vertical))
     {
         objectVerticalSpeed += mGravity;
-        objectVerticalDirection = direction;
     }
     else if (typeOfMoveChanger == int(sideType::horizontal))
     {
@@ -90,56 +89,58 @@ ImpermanentObjects::movingHorizontal()
 void
 ImpermanentObjects::movingVertical()
 {
-    bool collision       = true;
-    float mVerticalSpeed = verticalSpeed;
-    if (objectVerticalStoper == 0)
-    {
-        mVerticalSpeed = 0;
-    }
+    float statV = -1 * verticalSpeed;
+    float gravV = objectVerticalSpeed;
 
-    float mDirection = 0;
-    if (objectVerticalDirection == int(side::down))
-    {
-        mDirection = 1;
-        if (finalCollisionIntersection(int(side::down)) == true)
-        {
-            collision = 0;
-        }
-    }
-    else if (objectVerticalDirection == int(side::top))
-    {
-        mDirection = -1;
-        if (finalCollisionIntersection(int(side::top)) == true)
-        {
-            collision = 0;
-        }
-    }
+    bool collision = finalCollisionIntersection(int(side::down));
 
-    double g = 0;
-    if (collision)
+    if (objectVerticalStoper == 1)
     {
-        g = (mDirection * (objectVerticalSpeed + mVerticalSpeed * (collision ? 1 : 0))) *
-            Time::me.getTime();
-    }
-    else
-    {
-        float v = minimalMoving(objectVerticalDirection);
-        if (v > 0)
+        if (collision)
         {
-            g = mDirection * v;
+            moving = 0;
+            moving += statV;
         }
         else
         {
-            g = 0;
+            moving += (gravV)*Time::me.getTime();
         }
     }
-
-    objectSprite.move(0, g);
+    else
+    {
+        if (collision)
+        {
+            float v = minimalMoving(int(side::down));
+            if (v > 0)
+            {
+                moving = v;
+            }
+            else
+            {
+                moving = 0;
+            }
+        }
+        else
+        {
+            moving += (gravV)*Time::me.getTime();
+        }
+    }
+    std::cout << objectVerticalStoper << '\n';
+    preSpeed = moving;
+    objectSprite.move(0, moving);
 }
 
 void
 ImpermanentObjects::gravity()
 {
+    if (finalCollisionIntersection(int(side::down)))
+    {
+        objectVerticalSpeed = 0;
+    }
+    else
+    {
+        objectVerticalSpeed += 0.001;
+    }
 }
 
 bool
@@ -273,7 +274,6 @@ ImpermanentObjects::collisionIntersection(sf::Sprite s)
     int horizontalIntersection = 9;
 
     float mHorizontalSpeed = horizontalSpeed * Time::me.getTime();
-    float mVerticalSpeed   = (verticalSpeed + objectVerticalSpeed) * Time::me.getTime();
 
     // intersection of the left part
     if (((fL - mHorizontalSpeed <= sR && (fTbetweenStSd || fDbetweenStSd || horizontalEquals)) ||
@@ -288,14 +288,14 @@ ImpermanentObjects::collisionIntersection(sf::Sprite s)
         horizontalIntersection = 1;
 
     // intersection of the top part
-    if (((fT - mVerticalSpeed <= sD && (fLbetweenSlSr || fRbetweenSlSr || verticalEquals)) ||
-         (sD >= fT + mVerticalSpeed && (sLbetweenFlFr || sRbetweenFlFr || verticalEquals))) &&
+    if (((fT + preSpeed <= sD && (fLbetweenSlSr || fRbetweenSlSr || verticalEquals)) ||
+         (sD >= fT + preSpeed && (sLbetweenFlFr || sRbetweenFlFr || verticalEquals))) &&
         canT)
         verticalIntersection = 2;
 
     // intersection of the down part
-    if (((fD + mVerticalSpeed >= sT && (fLbetweenSlSr || fRbetweenSlSr || verticalEquals)) ||
-         (sT <= fD + mVerticalSpeed && (sLbetweenFlFr || sRbetweenFlFr || verticalEquals))) &&
+    if (((fD + preSpeed >= sT && (fLbetweenSlSr || fRbetweenSlSr || verticalEquals)) ||
+         (sT <= fD + preSpeed && (sLbetweenFlFr || sRbetweenFlFr || verticalEquals))) &&
         canD)
         verticalIntersection = 3;
 

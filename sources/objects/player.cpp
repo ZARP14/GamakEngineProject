@@ -3,11 +3,11 @@
 Player::Player(std::string str, int width, int height, int left, int right)
 {
 
-    objectRectangle.width = width;
+    objectRectangle.width  = width;
     objectRectangle.height = height;
-    objectRectangle.left = left;
-    objectRectangle.top = right;
+    objectRectangle.left   = left;
+    objectRectangle.top    = right;
     objectTexture.loadFromFile(str);
     objectSprite.setTexture(objectTexture);
-    objectSprite.setPosition(500, 500);
+    objectSprite.setPosition(500, 0);
 }
