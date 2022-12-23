@@ -10,6 +10,8 @@ ImpermanentObjects::ImpermanentObjects()
     objectHorizontalStoper    = 0;
     mGravity                  = 0;
     moving                    = 0;
+    leftStop                  = false;
+    rightStop                 = false;
 }
 
 void
@@ -26,19 +28,23 @@ ImpermanentObjects::moveChanger(int direction, bool typeOfMoveChanger, bool stop
 }
 
 void
-ImpermanentObjects::moveStoper(bool flag, bool type)
+ImpermanentObjects::moveHorizontalStoper(bool flag, bool type)
 {
-
     switch (type)
     {
-        case int(sideType::vertical):
-            objectVerticalStoper = flag;
+        case int(side::left):
+            leftStop = flag;
             break;
-
-        case int(sideType::horizontal):
-            objectHorizontalStoper = flag;
+        case int(side::right):
+            rightStop = flag;
             break;
     }
+}
+
+void
+ImpermanentObjects::moveVerticalStoper(bool flag)
+{
+    objectVerticalStoper = flag;
 }
 
 void
@@ -55,6 +61,7 @@ ImpermanentObjects::movingHorizontal()
         {
             collision = 0;
         }
+        stop = leftStop;
     }
     else if (objectHorizontalDirection == int(side::right))
     {
@@ -63,19 +70,21 @@ ImpermanentObjects::movingHorizontal()
         {
             collision = 0;
         }
+        stop = rightStop;
     }
+    if (rightStop && leftStop) stop = 0;
 
     double g = 0;
     if (collision)
     {
-        g = horizontalSpeed * mDirection * (objectHorizontalStoper ? 1 : 0) * Time::me.getTime();
+        g = horizontalSpeed * mDirection * stop * Time::me.getTime();
     }
     else
     {
         float v = minimalMoving(objectHorizontalDirection);
         if (v > 0)
         {
-            g = v * mDirection * (objectHorizontalStoper ? 1 : 0);
+            g = v * mDirection * stop;
         }
         else
         {
@@ -125,7 +134,6 @@ ImpermanentObjects::movingVertical()
             moving += (gravV)*Time::me.getTime();
         }
     }
-    std::cout << objectVerticalStoper << '\n';
     preSpeed = moving;
     objectSprite.move(0, moving);
 }

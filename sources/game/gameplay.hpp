@@ -16,7 +16,10 @@ public:
 private:
     Player basePlayer;
     SFMLObjects stone;
-    void doEvent(std::vector<sf::Event>& b);
+    SFMLObjects stone2;
+    void eventScan(std::vector<sf::Event>& b);
+    void doEvent();
+    std::set<sf::Keyboard::Key> a;
 };
 
 #endif // !GAME_HPP

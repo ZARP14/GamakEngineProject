@@ -1,8 +1,12 @@
 #ifndef LEVEL_HPP
 #define LEVEL_HPP
-
+#include <vector>
 class Level
 {
-}
+public:
+    Level();
 
-#endif //! LEVEL_HPP
+private:
+};
+
+#endif // !LEVEL_HPP

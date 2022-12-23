@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <iostream>
+#include <set>
 #include <vector>
 
 #include "core/events.hpp"

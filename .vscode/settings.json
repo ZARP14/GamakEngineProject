@@ -72,7 +72,10 @@
         "sstream": "cpp",
         "unordered_map": "cpp",
         "variant": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "mutex": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp"
     },
     "workbench.editor.revealIfOpen": true,
     "editor.formatOnSave": true,

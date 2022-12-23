@@ -16,7 +16,8 @@ public:
     void gravity();
 
     void moveChanger(int direction, bool typeOfMoveChanger, bool stoper = 0);
-    void moveStoper(bool flag, bool type);
+    void moveVerticalStoper(bool flag);
+    void moveHorizontalStoper(bool flag, bool type);
     void movingHorizontal();
     void movingVertical();
 
@@ -35,6 +36,10 @@ protected:
     int mGravity;
     float moving;
     sf::Sprite mSprite;
+
+private:
+    bool leftStop;
+    bool rightStop;
 };
 
 #endif // !ALIVEOBJECTS_HPP

@@ -2,14 +2,13 @@
 
 Gui Gui::global;
 
-Gui::Gui() :
- mWindow(sf::VideoMode(1000, 1000), "TheBestGame")
+Gui::Gui() : mWindow(sf::VideoMode(1000, 1000), "TheBestGame")
 {
     mWindow.setFramerateLimit(60);
 }
 
 void
-Gui::vectorInput(sf::Sprite &a)
+Gui::vectorInput(sf::Sprite& a)
 {
     SpriteVector.push_back(&a);
 }
@@ -17,7 +16,7 @@ Gui::vectorInput(sf::Sprite &a)
 void
 Gui::drawAnything()
 {
-    for(int i = 0; i < SpriteVector.size(); i++)
+    for (int i = 0; i < SpriteVector.size(); i++)
     {
         mWindow.draw(*SpriteVector[i]);
     }
@@ -28,7 +27,6 @@ Gui::eventTrnasmitterToCore()
 {
     return evObject.eventVec;
 }
-
 
 void
 Gui::bebraMustDie()
@@ -47,6 +45,5 @@ Gui::visualStarted()
     }
     mWindow.clear();
     drawAnything();
-    mWindow.display();  // которая будет отрисовывать все объекты на экране  
-
+    mWindow.display(); // которая будет отрисовывать все объекты на экране
 }
