@@ -1,6 +1,8 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include <box2d/box2d.h>
+
 #include "domain/const.hpp"
 #include "domain/time.hpp"
 
@@ -15,6 +17,7 @@ public:
 
 private:
     Player basePlayer;
+
     SFMLObjects stone;
     SFMLObjects stone2;
     void eventScan(std::vector<sf::Event>& b);

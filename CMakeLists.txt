@@ -11,19 +11,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/so
 #cool_folder
 
 #sfml
-
-set(SFML_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libraries/SFML-2.5.1_W-64)
-set(SFML_DIR ${SFML_ROOT_DIR}/lib/cmake/SFML)
-
-find_package(SFML 2.5.1 COMPONENTS system window graphics audio REQUIRED)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-network sfml-graphics sfml-audio)
+target_include_directories(${PROJECT_NAME} PUBLIC C:/Users/visitor.ATALENT.001/vcpkg/installed/x64-windows/include)
 #sfml
 
-#TinyXML
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libraries/TinyXML/include)
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/liraries/TinyXMLL/lib)
-#TinyXML
 
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin/$<0:>)
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
