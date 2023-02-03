@@ -6,8 +6,10 @@
 #include "domain/const.hpp"
 #include "domain/time.hpp"
 
+#include "gui/gui.hpp"
 #include "objects/player.hpp"
 #include "objects/sfmlObjects.hpp"
+#include "objects/world.hpp"
 
 class Gameplay
 {
@@ -16,10 +18,8 @@ public:
     void doGame(std::vector<sf::Event>& a);
 
 private:
+    World baseWorld;
     Player basePlayer;
-
-    SFMLObjects stone;
-    SFMLObjects stone2;
     void eventScan(std::vector<sf::Event>& b);
     void doEvent();
     std::set<sf::Keyboard::Key> a;
