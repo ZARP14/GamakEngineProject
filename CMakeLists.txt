@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21.3)
 
-set(VCPKG_ROOT "C:/Users/visitor.ATALENT.005/vcpkg")
+set(VCPKG_ROOT "C:/Users/visitor.ATALENT.002/vcpkg")
 set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
 
 project(GamakEngineProject)

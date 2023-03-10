@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/sources/**",
-                "C:/Users/visitor.ATALENT.005/vcpkg/installed/x64-windows/include/**"
+                "C:/Users/visitor.ATALENT.002/vcpkg/installed/x64-windows/include/**"
             ],
             "defines": [
                 "_DEBUG",
