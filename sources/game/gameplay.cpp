@@ -1,6 +1,6 @@
 #include "game/gameplay.hpp"
 
-Gameplay::Gameplay() : basePlayer(baseWorld.mB2dWorld)
+Gameplay::Gameplay()
 {
 }
 
@@ -23,6 +23,4 @@ Gameplay::eventScan(std::vector<sf::Event>& b)
 void
 Gameplay::doGame(std::vector<sf::Event>& a)
 {
-    basePlayer.objectSprite.setPosition(basePlayer.body->GetPosition().x,
-                                        basePlayer.body->GetPosition().y);
 }

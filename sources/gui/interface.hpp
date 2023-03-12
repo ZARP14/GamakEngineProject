@@ -1,14 +1,16 @@
 #ifndef INTERFACE_HPP
 #define INTERFACE_HPP
+#include <SFML/Graphics.hpp>
+
 #include "button.hpp"
-#include "gui.hpp"
 
 class Interface
 {
 public:
     Interface();
-    void setButton();
-    void drawer();
+    void setButton(sf::Texture onClickTexture, sf::Texture defaultTexture, sf::Vector2f pos,
+                   sf::Vector2f sizeInput);
+    void draw();
 
 private:
     sf::Sprite pageSprite;
