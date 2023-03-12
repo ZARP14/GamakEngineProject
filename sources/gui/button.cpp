@@ -1,13 +1,16 @@
 #include "button.hpp"
 
-Button::Button(sf::Texture onClickTextureInput, sf::Texture defaultTextureInput, sf::Vector2f pos,
-               sf::Vector2f sizeInput)
+Button::Button(std::string onClickTexturePath, std::string defaultTexturePath, float x, float y,
+               float xSize, float ySize)
 {
-    onClickTexture = onClickTextureInput;
-    defaultTexture = defaultTextureInput;
-    buttonPosition = pos;
-    buttonSize     = sizeInput;
+    onClickTexture.loadFromFile(onClickTexturePath);
+    defaultTexture.loadFromFile(defaultTexturePath);
+    buttonPosition.x = x;
+    buttonPosition.y = y;
+    buttonSize.x     = xSize;
+    buttonSize.y     = ySize;
     buttonSprite.setTexture(defaultTexture);
+    buttonSprite.setPosition(buttonPosition);
 }
 
 void

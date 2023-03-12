@@ -1,14 +1,15 @@
 #ifndef BUTTON_HPP
 #define BUTTON_HPP
-#include <vector>
+#include <SFML/Graphics.hpp>
 
-#include "gui.hpp"
+#include <string>
+#include <vector>
 
 class Button
 {
 public:
-    Button(sf::Texture onClickTexture, sf::Texture defaultTexture, sf::Vector2f pos,
-           sf::Vector2f sizeInput);
+    Button(std::string onClickTexturePath, std::string defaultTexturePath, float x, float y,
+           float xSize, float ySize);
     void doSomething();
     std::vector<sf::Vector2f> getButtonPosition();
     void clicked(sf::Vector2f clickCoordinates);
@@ -16,9 +17,9 @@ public:
     {
         zero = 0
     };
+    sf::Sprite buttonSprite;
 
 private:
-    sf::Sprite buttonSprite;
     sf::Texture onClickTexture;
     sf::Texture defaultTexture;
     sf::Vector2f buttonPosition;

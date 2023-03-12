@@ -13,8 +13,6 @@ public:
     void doGame(std::vector<sf::Event>& a);
 
 private:
-    // World baseWorld;
-    // Player basePlayer;
     void eventScan(std::vector<sf::Event>& b);
     void doEvent();
     std::set<sf::Keyboard::Key> a;
