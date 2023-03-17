@@ -28,7 +28,7 @@ Gui::drawAnything()
 
     for (int i = 0; i < interfacePageVector.size(); i++)
     {
-        for (int j = 0; j < interfacePageVector.size(); j++)
+        for (int j = 0; j < interfacePageVector[i]->draw().size(); j++)
         {
             mWindow.draw(interfacePageVector[i]->draw()[j]);
         }

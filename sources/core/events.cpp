@@ -1,7 +1,7 @@
 #include "core/events.hpp"
 
 void
-Events::pushEvent(sf::Event &ev)
+Events::pushEvent(sf::Event& ev)
 {
-    eventVec.push_back(ev);
+    eventVector.push_back(ev);
 }
