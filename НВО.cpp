@@ -16,10 +16,10 @@ struct point
         x = std::rand() % 100;
         y = std::rand() % 100;
     }
-    
+
 };
 
-bool check(std::vector<point>& v, point& p )
+bool check(std::vector<point>& v, point& p)
 {
     for (int i = 0; i < v.size(); i++)
     {
@@ -44,6 +44,20 @@ bool way(point p0, point p1, point p2)
 
 }
 
+void qsort(int start, int finish, std::vector<point>& v)
+{
+    if (finish - start == 2) return;
+    int pivot = (start + finish) / 2;
+    while (start <= finish)
+    {
+        while(way()])
+        {
+
+    }
+
+    while ()
+}
+
 int main()
 {
     int n = 10;
@@ -57,7 +71,7 @@ int main()
         }
         points.push_back(a);
     }
-    
+
     int buf1 = 0;
     int buf2 = 0;
     for (int i = 0; i < points.size(); i++)
@@ -67,10 +81,4 @@ int main()
             buf1 = points[i].x;
             buf2 = i;
         }
-    }
-
-    for (int i = buf2+1; i != buf2; i++)
-    {
-        if (i == n - 1) i = 0;
-
     }
